@@ -4,4 +4,4 @@ services:
 before_install:
  - docker build -t travis_test_image -f Dockerfile.dev .
 script:
- - docker run travis_test_image npm run test -- --coverage.
+ - docker run travis_test_image npm run test -- --coverage
