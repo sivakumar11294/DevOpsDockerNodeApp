@@ -7,3 +7,16 @@ before_install:
  
 script:
  - docker run -e CI=true travis_test_image npm run test
+ 
+deploy:
+ provider: elasticbeanstalk
+ region: us-east-2
+ app: "docker-App"
+ env: "Production"
+ bucket_name: "elasticbeanstalk-us-east-2-246650527398"
+ bucket_path: "docker"
+ on:
+  branch: master
+ access_key_id: $ACCESS_KEY
+ secret_access_key: 
+  secure: "$ACCESS_SECRET_KEY"
